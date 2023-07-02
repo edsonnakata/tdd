@@ -10,7 +10,7 @@ import br.com.tdd.tdd.Entidades.Dollar;
 @SpringBootTest
 class DollarTest {
 
-	
+	@Test
 	void testMultiplication() {
 		/*
 		* Primeiro cenário de teste
