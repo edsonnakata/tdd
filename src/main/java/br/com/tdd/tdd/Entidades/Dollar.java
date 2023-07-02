@@ -1,7 +1,7 @@
 package br.com.tdd.tdd.Entidades;
 
 public class Dollar {
-    int amount;
+    public int amount;
 
     public Dollar(int amount){
 
