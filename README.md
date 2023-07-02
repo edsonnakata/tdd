@@ -1,22 +1,33 @@
-# Aprendendo TDD (Test-Driven Development)
+# Dinheiro Mult-Moeda
 
-## Descrição do Projeto
-Este projeto tem como objetivo fornecer um ambiente de aprendizado para o método de desenvolvimento de software conhecido como TDD (Test-Driven Development), ou Desenvolvimento Orientado a Testes.
+Começaremos com o objeto que Ward criou no WyCash, dinheiro multi-moeda
+(mencionado na Introdução). Suponha que tenhamos um relatório como esse:
 
-O TDD é uma abordagem de desenvolvimento de software que se baseia na criação de testes automatizados antes da implementação do código. Isso ajuda os desenvolvedores a terem um feedback rápido sobre o funcionamento do código, garantindo maior confiabilidade e facilitando a manutenção do sistema.
+| Instrumento | Ações | Preço | Total  |
+| ----------- | ----- | ----- | ------ |
+| IBM         | 1.000 | 25    | 25.000 |
+| GE          | 400   | 100   | 40.000 |
+|             |       | Total | 65.000 |
 
-## Funcionalidades do Projeto
+Para fazer um relatório multi-moeda, precisamos adicionar moedas:
 
-O projeto possui as seguintes funcionalidades:
+| Instrumento | Ações | Preço   | Total      |
+| ----------- | ----- | ------- | ---------- |
+| IBM         | 1.000 | 25 USD  | 25.000 USD |
+| GE          | 400   | 100 CHF | 40.000 CHF |
+|             |       | Total   | 65.000 USD |
 
-1. Implementação de testes automatizados usando um framework de teste (JUnit para Java)
-2. Criação de casos de teste a partir do livro TDD - Desenvolvimento Guiado por Teste de Kent Beck
+Precisamos também especificar taxas de câmbio:
 
-## Como Usar o Projeto
-> Cada branch representará os capítulos que o livro possui
+| De  | Para | Taxa |
+| --- | ---- | ---- |
+| CHF | USD  | 1,5  |
 
-Para usar o projeto e aprender o TDD, siga as etapas abaixo:
+De que comportamento precisaremos para produzir o relatório revisado?
+Dito de outra forma, qual conjunto de testes, quando passarem, demonstrará a
+presença de código que estamos confiantes que irá calcular o relatório corretamente?
 
-1. Faça o clone do repositório
-2. Navegue até a branch do capítulo
-3. Acesse o hitórico dos commits
+* Precisamos ser capazes de somar valores em duas moedas diferentes e de converter o resultado, dado um conjunto de taxas de câmbio.
+* Precisamos ser capazes de multiplicar um valor (preço por ação) por um número (número de ações) e de receber uma quantia.
+
+Baseado nestas condições vamos ao código em DollarTest;
